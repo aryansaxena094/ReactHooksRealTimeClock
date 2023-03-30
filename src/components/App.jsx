@@ -1,20 +1,25 @@
 import React from "react";
 
 function App() {
-  const [time, newTime] = React.useState( new Date().toLocaleTimeString())
-
-  function updateTime(){
-    newTime( new Date().toLocaleTimeString());
-  };
+  const [time, setTime] = React.useState(new Date().toLocaleTimeString());
+  
+  function updateTime() {
+    setTime(new Date().toLocaleTimeString());
+  }
   
   setInterval(updateTime, 1000);
+  
+  function handleClick() {
+    setTime(new Date().toLocaleTimeString());
+  }
   
   return (
     <div className="container">
     <h1>{time}</h1>
-    <button>Get Time</button>
+    <button onClick={handleClick}>Get Time</button>
     </div>
     );
   }
+  
   export default App;
   
